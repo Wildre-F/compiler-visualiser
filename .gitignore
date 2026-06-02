@@ -1,0 +1,5 @@
+/engine/target/
+/engine/pkg/
+/web/node_modules/
+/web/dist/
+*.log
