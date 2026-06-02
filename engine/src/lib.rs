@@ -13,6 +13,8 @@ pub mod lexer;
 pub mod parser;
 pub mod span;
 pub mod vm;
+#[cfg(target_arch = "wasm32")]
+pub mod wasm;
 
 pub use span::CompileError;
 pub use vm::{compile, Compilation, Vm};

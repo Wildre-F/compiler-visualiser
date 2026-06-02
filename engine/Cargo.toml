@@ -17,3 +17,8 @@ serde-wasm-bindgen = "0.6"
 [profile.release]
 opt-level = "s"
 lto = true
+
+# wasm-opt would need a binaryen download this network's proxy blocks;
+# the module is small enough (~130 KB) that rustc's own opts suffice.
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
