@@ -5,14 +5,20 @@
 
 use crate::span::CompileError;
 use crate::vm;
+use serde::Serialize;
 use wasm_bindgen::prelude::*;
 
-fn to_js<T: serde::Serialize>(value: &T) -> Result<JsValue, JsValue> {
-    serde_wasm_bindgen::to_value(value).map_err(|e| JsValue::from_str(&e.to_string()))
+/// Serialize with the JSON-compatible profile: structs (and `serde(flatten)`
+/// maps) become plain JS objects rather than ES `Map`s.
+fn to_js<T: Serialize>(value: &T) -> Result<JsValue, JsValue> {
+    let ser = serde_wasm_bindgen::Serializer::json_compatible();
+    value
+        .serialize(&ser)
+        .map_err(|e| JsValue::from_str(&e.to_string()))
 }
 
 fn err_to_js(err: &CompileError) -> JsValue {
-    serde_wasm_bindgen::to_value(err).unwrap_or_else(|_| JsValue::from_str(&err.message))
+    to_js(err).unwrap_or_else(|_| JsValue::from_str(&err.message))
 }
 
 /// Compile source text. Returns the full artifact payload
