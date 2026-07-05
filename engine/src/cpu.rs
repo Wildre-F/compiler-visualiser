@@ -1,7 +1,7 @@
 //! The CPU simulator: a step-able RV32IM core.
 //!
 //! Every `step()` is a real fetch → decode → execute cycle. Decode operates on
-//! the actual bytes in memory — not a cached instruction list — so the machine
+//! the actual bytes in memory - not a cached instruction list - so the machine
 //! code panel genuinely drives execution.
 
 use crate::assembler::decode;
@@ -19,7 +19,7 @@ pub struct Cpu {
     pub halted: bool,
 }
 
-/// What changed during one cycle — the lean delta shipped across the WASM
+/// What changed during one cycle - the lean delta shipped across the WASM
 /// boundary instead of the whole CPU state.
 #[derive(Debug, Clone, Serialize)]
 pub struct StepDelta {
@@ -95,7 +95,7 @@ impl Cpu {
         delta.reg_write = Some(RegWrite { reg, old, new: value });
     }
 
-    /// One fetch–decode–execute cycle.
+    /// One fetch-decode-execute cycle.
     pub fn step(&mut self) -> StepDelta {
         let pc = self.pc;
         let mut delta = StepDelta {
@@ -113,7 +113,7 @@ impl Cpu {
             return delta;
         }
 
-        // FETCH — read 4 bytes from memory at the program counter.
+        // FETCH - read 4 bytes from memory at the program counter.
         let word = match self.read_word(pc) {
             Some(w) => w as u32,
             None => return self.fault(delta, format!("fetch out of bounds at {pc:#06x}")),
@@ -122,7 +122,7 @@ impl Cpu {
             return self.fault(delta, format!("misaligned PC {pc:#06x}"));
         }
 
-        // DECODE — parse the bits back into an instruction.
+        // DECODE - parse the bits back into an instruction.
         let instr = match decode(word) {
             Some(i) => i,
             None => {
@@ -133,7 +133,7 @@ impl Cpu {
             }
         };
 
-        // EXECUTE — apply the effect.
+        // EXECUTE - apply the effect.
         let mut next_pc = pc.wrapping_add(4);
         let r = |i: &Cpu, reg: u8| i.regs[reg as usize];
 

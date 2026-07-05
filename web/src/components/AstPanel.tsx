@@ -1,4 +1,4 @@
-// The AST panel — the parsed tree, collapsible, highlight-synchronized.
+// The AST panel - the parsed tree, collapsible, highlight-synchronized.
 
 import { useState } from 'react'
 import type { Expr, Highlight, Span, Stmt } from '../types'

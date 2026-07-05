@@ -1,6 +1,6 @@
 //! Recursive-descent parser: tokens → AST, every node spanned and id-tagged.
 //!
-//! Grammar (v1 — no functions yet):
+//! Grammar (v1 - no functions yet):
 //!
 //! ```text
 //! program    := stmt*

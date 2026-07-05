@@ -116,7 +116,7 @@ impl Vm {
         }
     }
 
-    /// One fetch–decode–execute cycle.
+    /// One fetch-decode-execute cycle.
     pub fn step(&mut self) -> TracedDelta {
         let delta = self.cpu.step();
         let span = self
@@ -181,7 +181,7 @@ mod tests {
                 n = n - 1;
             }
         "#;
-        // `let t` inside a loop body redeclares — adjust: declare t up front.
+        // `let t` inside a loop body redeclares - adjust: declare t up front.
         let src = src.replace("let t = a + b;", "t = a + b;");
         let src = format!("let t = 0;\n{src}");
 

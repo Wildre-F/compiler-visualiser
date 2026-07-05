@@ -1,4 +1,4 @@
-//! The WASM boundary — thin wasm-bindgen wrappers over the pure engine.
+//! The WASM boundary - thin wasm-bindgen wrappers over the pure engine.
 //!
 //! Chunky, not chatty: `compile()` ships every artifact in one payload;
 //! `Vm.step()` ships one small delta per cycle. No other traffic crosses.
@@ -50,7 +50,7 @@ impl Vm {
         })
     }
 
-    /// One fetch–decode–execute cycle. Returns a `TracedDelta`.
+    /// One fetch-decode-execute cycle. Returns a `TracedDelta`.
     pub fn step(&mut self) -> Result<JsValue, JsValue> {
         to_js(&self.inner.step())
     }
@@ -68,7 +68,7 @@ impl Vm {
         self.inner.halted()
     }
 
-    /// Full CPU snapshot (registers, PC, halted, variable slot values) —
+    /// Full CPU snapshot (registers, PC, halted, variable slot values) -
     /// for the initial paint and after reset.
     pub fn state(&self) -> Result<JsValue, JsValue> {
         to_js(&self.inner.state(self.num_vars))

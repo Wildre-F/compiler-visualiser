@@ -9,7 +9,7 @@ use serde::Serialize;
 pub type Reg = u8;
 
 pub const ZERO: Reg = 0;
-pub const GP: Reg = 3; // global pointer — base address of variable slots
+pub const GP: Reg = 3; // global pointer - base address of variable slots
 pub const A0: Reg = 10; // syscall argument
 pub const A7: Reg = 17; // syscall number
 /// Temporaries used as the expression evaluation stack: t0-t6.
@@ -50,12 +50,12 @@ pub enum Instr {
     // loads/stores
     Lw { rd: Reg, rs1: Reg, imm: i32 },
     Sw { rs1: Reg, rs2: Reg, imm: i32 }, // sw rs2, imm(rs1)
-    // branches — `offset` is a byte offset relative to this instruction
+    // branches - `offset` is a byte offset relative to this instruction
     Beq { rs1: Reg, rs2: Reg, offset: i32 },
     Bne { rs1: Reg, rs2: Reg, offset: i32 },
     Blt { rs1: Reg, rs2: Reg, offset: i32 },
     Bge { rs1: Reg, rs2: Reg, offset: i32 },
-    // jump — `offset` is a byte offset relative to this instruction
+    // jump - `offset` is a byte offset relative to this instruction
     Jal { rd: Reg, offset: i32 },
     // environment call
     Ecall,

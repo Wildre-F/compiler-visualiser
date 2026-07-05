@@ -1,4 +1,4 @@
-// Step / Run / Reset / speed — the execution controls.
+// Step / Run / Reset / speed - the execution controls.
 
 interface Props {
   running: boolean

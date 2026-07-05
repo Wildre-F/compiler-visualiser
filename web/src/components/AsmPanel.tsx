@@ -1,6 +1,6 @@
 // The assembly + machine-code listing: address | raw bytes | mnemonic.
 //
-// The bytes column shows the actual little-endian bytes in memory — the same
+// The bytes column shows the actual little-endian bytes in memory - the same
 // bytes the CPU fetches and decodes each cycle.
 
 import { useEffect, useRef } from 'react'

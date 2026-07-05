@@ -2,4 +2,8 @@
 /engine/pkg/
 /web/node_modules/
 /web/dist/
+/web/tsconfig.tsbuildinfo
+.claude/
+.DS_Store
+Thumbs.db
 *.log

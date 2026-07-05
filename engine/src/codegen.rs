@@ -1,5 +1,5 @@
 //! Codegen: AST → RV32IM instructions, each tagged with the AST node it came
-//! from (which in turn carries the source span — the provenance chain).
+//! from (which in turn carries the source span - the provenance chain).
 //!
 //! Strategy (deliberately simple, v1):
 //! - Each variable gets a 4-byte slot in a data section placed right after the
@@ -225,7 +225,7 @@ impl Codegen {
                 let l_else = self.new_label();
                 let l_end = self.new_label();
                 let r = self.expr(cond)?;
-                // condition is 0 or 1 in r — skip the then-branch when false
+                // condition is 0 or 1 in r - skip the then-branch when false
                 self.emit_to_label(
                     Instr::Beq { rs1: r, rs2: ZERO, offset: 0 },
                     l_else,

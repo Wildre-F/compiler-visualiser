@@ -11,7 +11,7 @@ export interface Token {
   span: Span
 }
 
-// AST — statements and expressions are tagged unions via `type`.
+// AST - statements and expressions are tagged unions via `type`.
 export interface AstNodeBase {
   id: number
   span: Span

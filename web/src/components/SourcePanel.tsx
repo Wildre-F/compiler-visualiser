@@ -1,4 +1,4 @@
-// The editable source panel — CodeMirror 6 with decoration-driven highlights.
+// The editable source panel - CodeMirror 6 with decoration-driven highlights.
 //
 // Three decoration layers, all rebuilt via effects dispatched from App:
 //  - token classes (syntax colors come from the engine's own lexer output)

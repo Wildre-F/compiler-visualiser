@@ -1,7 +1,7 @@
 //! Assembler: `Instr` → genuine 32-bit RV32IM machine words, and the decoder
 //! that turns words back into instructions.
 //!
-//! The decoder is what the CPU simulator runs on — it decodes the *actual
+//! The decoder is what the CPU simulator runs on - it decodes the *actual
 //! bytes in memory* every cycle, so the machine-code panel isn't decoration:
 //! it is literally what executes.
 

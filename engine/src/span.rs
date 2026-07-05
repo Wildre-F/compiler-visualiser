@@ -1,4 +1,4 @@
-//! Source spans — the backbone of provenance.
+//! Source spans - the backbone of provenance.
 //!
 //! Every artifact the engine produces (token, AST node, instruction, byte)
 //! carries a `Span` pointing back at the source characters it came from.

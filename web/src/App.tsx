@@ -226,7 +226,7 @@ export default function App() {
             <div className="compile-error">⚠ {error.message}</div>
           )}
           <div className="panel-title">output</div>
-          <pre className="console">{output || <span className="console-empty">— run the program —</span>}</pre>
+          <pre className="console">{output || <span className="console-empty">- run the program -</span>}</pre>
         </section>
 
         <section className="panel panel-asm">
